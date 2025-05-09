@@ -1,16 +1,4 @@
-/**
-* Template Name: Strategy
-* Template URL: https://bootstrapmade.com/strategy-bootstrap-agency-template/
-* Updated: May 09 2025 with Bootstrap v5.3.6
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
-/* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Nunito Sans",  sans-serif;
@@ -3774,5 +3762,88 @@ section,
 # Starter Section Section
 --------------------------------------------------------------*/
 .starter-section {
+
+  body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    #chatModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    #chatbox {
+      width: 500px;
+      height: 600px;
+      background: #ffffff;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      position: relative;
+      border-top: 5px solid #149ddd;
+    }
+    #closeBtn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff4b5c;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    #messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+    }
+    .msg {
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 8px;
+      max-width: 80%;
+      line-height: 1.4;
+    }
+    .bot {
+      background: #f1f1f1;
+      color: #333;
+      align-self: flex-start;
+    }
+    .user {
+      background: #149ddd;
+      color: #fff;
+      align-self: flex-end;
+    }
+    #inputBox {
+      display: flex;
+      border-top: 1px solid #ccc;
+      padding: 10px;
+    }
+    #userInput {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #sendBtn {
+      margin-left: 10px;
+      padding: 10px 20px;
+      background: #149ddd;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #sendBtn:hover, #closeBtn:hover {
+      opacity: 0.9;
+    }
   /* Add your styles here */
 }

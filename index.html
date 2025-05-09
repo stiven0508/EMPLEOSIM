@@ -49,7 +49,11 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="#about">Iniciar simulacion</a>
+        <!-- Button to Open the Modal -->
+      <button type="button" class="btn-getstarted" data-bs-toggle="modal" data-bs-target="#myModal">
+        Iniciar simulacion
+      </button>
+      
 
     </div>
   </header>
@@ -189,6 +193,102 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+     <div id="chatModal">
+        <div id="chatbox">
+          <div id="messages"></div>
+          <div id="inputBox">
+            <input type="text" id="userInput" placeholder="Escribe tu respuesta...">
+            <button id="sendBtn" class="btn btn-primary">Enviar</button>
+          </div>
+          <!-- Modal footer -->
+            <div class="modal-body">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+  <!-- Modal del chatbot -->
+      
+
+  <script>
+    const messages = document.getElementById('messages');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const chatModal = document.getElementById('chatModal');
+    const closeBtn = document.getElementById('closeBtn');
+    const startBtn = document.getElementById('startSimulationBtn');
+
+    const preguntas = [
+      "Cuéntame sobre ti.",
+      "¿Cuáles son tus fortalezas?",
+      "¿Dónde te ves en 5 años?",
+      "¿Por qué quieres trabajar con nosotros?",
+      "¿Cómo manejas el estrés o la presión?"
+    ];
+
+    let paso = 0;
+
+    function agregarMensaje(texto, clase) {
+      const msg = document.createElement('div');
+      msg.className = 'msg ' + clase;
+      msg.textContent = texto;
+      messages.appendChild(msg);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function evaluarRespuesta(respuesta) {
+      if (respuesta.length < 10) return "Intenta desarrollar más tu respuesta.";
+      if (respuesta.toLowerCase().includes("no sé")) return "Evita respuestas como 'no sé'. Muestra seguridad.";
+      return "Buena respuesta. Recuerda ser claro y mostrar confianza.";
+    }
+
+    function botHabla() {
+      if (paso < preguntas.length) {
+        agregarMensaje(preguntas[paso], 'bot');
+      } else {
+        agregarMensaje("Gracias por practicar. ¡Buena suerte en tu entrevista!", 'bot');
+      }
+    }
+
+    sendBtn.addEventListener('click', () => {
+      const texto = userInput.value.trim();
+      if (texto) {
+        agregarMensaje(texto, 'user');
+        userInput.value = '';
+
+        if (paso < preguntas.length) {
+          setTimeout(() => {
+            agregarMensaje(evaluarRespuesta(texto), 'bot');
+            paso++;
+            setTimeout(botHabla, 1000);
+          }, 1000);
+        }
+      }
+    });
+
+    startBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      chatModal.style.display = 'flex';
+      if (paso === 0) setTimeout(botHabla, 500);
+    });
+
+    closeBtn.addEventListener('click', () => {
+      chatModal.style.display = 'none';
+    });
+  </script>
 </body>
 
 </html>
