@@ -94,6 +94,7 @@
       </div>
     </section><!-- /Hero Section -->
 
+
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
@@ -197,24 +198,24 @@
 
 <!-- The Modal -->
 <div class="modal" id="myModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
-     <div id="chatModal">
+     <!-- Contenido del chatbot -->
+      <div class="modal-body">
         <div id="chatbox">
           <div id="messages"></div>
           <div id="inputBox">
-            <input type="text" id="userInput" placeholder="Escribe tu respuesta...">
+            <input style="width: 80%;" type="text" id="userInput" placeholder="Escribe tu respuesta...">
             <button id="sendBtn" class="btn btn-primary">Enviar</button>
           </div>
-          <!-- Modal footer -->
-            <div class="modal-body">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-            </div>
         </div>
       </div>
 
-
+      <!-- Pie del modal -->
+      <div class="modal-footer justify-content-end">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar Simulación</button>
+      </div>
 
     </div>
   </div>
